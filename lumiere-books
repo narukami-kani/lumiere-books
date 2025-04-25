@@ -1,0 +1,94 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+export default function LumiereBooks() {
+  return (
+    <div className="min-h-screen bg-[#f9f6f1] text-gray-900 font-serif">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 p-6 shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <h1 className="text-4xl font-bold tracking-wide text-[#3e2f2f]">Lumiere Books</h1>
+          <nav className="space-x-6 text-lg font-medium">
+            <a href="#home" className="hover:text-[#a87f51] transition">Home</a>
+            <a href="#about" className="hover:text-[#a87f51] transition">About</a>
+            <a href="#products" className="hover:text-[#a87f51] transition">Books</a>
+            <a href="#blog" className="hover:text-[#a87f51] transition">Blog</a>
+            <a href="#contact" className="hover:text-[#a87f51] transition">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Home Section */}
+      <section id="home" className="text-center py-24 bg-[#fff8f0]">
+        <h2 className="text-5xl font-extrabold mb-6 text-[#3e2f2f]">Elegant Reads, Endless Discoveries</h2>
+        <p className="max-w-2xl mx-auto text-xl text-[#5e4a4a] mb-8">
+          Dive into a curated selection of eBooks that blend beauty and knowledge for the modern reader.
+        </p>
+        <Button className="bg-[#a87f51] hover:bg-[#936c42] text-white text-lg px-8 py-3 rounded-full">Explore Now</Button>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 px-6 max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-6 text-[#3e2f2f]">About Lumiere Books</h2>
+        <p className="text-[#5e4a4a] text-lg leading-relaxed">
+          Lumiere Books was born from a love for literature and aesthetics. Our digital bookstore brings timeless stories and modern design together. From enriching non-fiction to whimsical fiction, we provide a premium reading experience tailored for the digital age.
+        </p>
+      </section>
+
+      {/* Products Section */}
+      <section id="products" className="py-24 bg-[#f3ece4] px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-14 text-center text-[#3e2f2f]">Featured eBooks</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[1,2,3].map((book) => (
+              <Card key={book} className="bg-white shadow-lg rounded-lg overflow-hidden">
+                <CardContent className="p-6">
+                  <img src={`https://via.placeholder.com/400x280?text=Book+${book}`} alt={`Book ${book}`} className="mb-4 w-full object-cover rounded" />
+                  <h3 className="text-2xl font-semibold text-[#3e2f2f] mb-2">Book Title {book}</h3>
+                  <p className="text-[#5e4a4a] text-sm mb-4">Explore the journey of knowledge, wonder, and imagination.</p>
+                  <Button className="w-full bg-[#a87f51] hover:bg-[#936c42] text-white">Buy Now</Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section id="blog" className="py-24 max-w-5xl mx-auto px-6">
+        <h2 className="text-4xl font-bold mb-12 text-center text-[#3e2f2f]">Latest From Our Blog</h2>
+        <div className="space-y-10">
+          {[1,2].map((post) => (
+            <div key={post} className="bg-white p-6 shadow-md rounded-md">
+              <h3 className="text-2xl font-bold text-[#3e2f2f] mb-2">Blog Post Title {post}</h3>
+              <p className="text-[#5e4a4a]">Short insight or excerpt to capture the reader’s curiosity and bring them into the Lumiere experience.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-[#fff8f0] px-6">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-10 text-center text-[#3e2f2f]">Contact Us</h2>
+          <form className="space-y-6">
+            <Input type="text" placeholder="Your Name" className="rounded-lg border-gray-300" />
+            <Input type="email" placeholder="Your Email" className="rounded-lg border-gray-300" />
+            <Textarea placeholder="Your Message" rows={5} className="rounded-lg border-gray-300" />
+            <Button className="bg-[#a87f51] hover:bg-[#936c42] text-white w-full py-3 text-lg rounded-full">Send Message</Button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#3e2f2f] text-white py-8 mt-16">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-lg">&copy; 2025 Lumiere Books. Designed with passion for readers everywhere.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
